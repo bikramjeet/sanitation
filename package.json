@@ -1,0 +1,22 @@
+{
+  "author": {
+    "name": "Bikramjeet Nath",
+    "email": "bkrmjtnath@gmail.com"
+  },
+  "name": "sanitation",
+  "version": "1.0.0",
+  "description": "Iterates nested JSON objects and performs operation like validation and fetching the value",
+  "main": "sanitation.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bikramjeet/sanitation.git"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "moment": "^2.14.1"
+  }
+}
