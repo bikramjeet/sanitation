@@ -1,11 +1,8 @@
 {
-  "author": {
-    "name": "Bikramjeet Nath",
-    "email": "bkrmjtnath@gmail.com"
-  },
+  "author": "Bikramjeet Nath <bkrmjtnath@gmail.com>",
   "name": "sanitation",
-  "version": "1.0.1",
-  "description": "Iterates nested JSON objects and performs operation like validation and fetching the value",
+  "version": "1.0.2",
+  "description": "Iterates nested JSON objects to fetch the value and performs operation like sanity validation of data along with blank value and mandatory fields checking",
   "main": "sanitation.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,7 +14,7 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "moment": "2.14.1"
+    "moment": "2.17.1"
   },
   "keywords": [
     "sanity validation",
@@ -28,8 +25,8 @@
     "extract last folder from path",
     "valid date",
     "YYYY-MM-DD",
-    "iterate nested object",
-    "return nested object value from string",
+    "iterates nested object",
+    "returns nested object value from string",
     "validator",
     "check data type",
     "blank value checking",
