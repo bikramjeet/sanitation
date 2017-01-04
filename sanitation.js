@@ -104,20 +104,20 @@ function validator(data, validFields, mandatoryFields, blankValue) {
 }
 
 /**
-* Validates the integer value and returns true for success.
-* @method isInteger
+* Validates the non zero positive integer value from the string and returns true for success.
+* @method isPositiveInteger
 * @param {String} value The string value to be tested.
 **/
-function isInteger(value) {
+function isPositiveInteger(value) {
     return config.checkIntegerValue.test(value);
 }
 
 /**
-* Validates the non-zero positive integer value and returns true for success.
+* Validates the non-zero positive integer value from the array of strings and returns true for success.
 * @method isPositiveInteger
 * @param {Array} value The values to be tested.
 **/
-function isPositiveInteger(value) {
+function isPositiveIntegerArray(value) {
     var success = true;
     for(var i = 0; i < value.length; i++) {
         if(!config.checkIntegerValue.test(value[i]) || parseInt(value[i]) <= 0) {
@@ -147,15 +147,16 @@ function lastFolderFromPath(folderPath) {
 }
 
 /**
-* Checks the YYYY-MM-DD date format along with valid date.
+* Checks the date format along with valid date.
 * @method isValidDate
 * @param {String} dateString The date value to validate.
+* @param {String} dateFormat The expected format of the date value.
 **/
-function isValidDate(dateString) {
+function isValidDate(dateString, dateFormat) {
     if(!dateString.match(config.dateFormatPattern)) {
         return false;
     }
-    if(!moment(dateString, 'YYYY-MM-DD').isValid()) {
+    if(!moment(dateString, dateFormat).isValid()) {
         return false;
     }
     var d = new Date(dateString);
@@ -163,27 +164,32 @@ function isValidDate(dateString) {
 }
 
 /**
-* Returns the value of the nested object based on string path.
+* Returns the value of the nested object based on string path and the separator provided.
 * @param {String} name The path of the nested object structure to fetch the value.
+* @param {String} separator The identifier to split the string to iterate over the JSON object keys.
 * @param {Object} context The original nested JSON object.
 **/
-function objValByStr(name, context) {
+function objValByStr(name, separator, context) {
     var func, i, n, ns, _i, _len;
-    if (!!name || !!context) {
+    if (!name || !separator || !context) {
         return null;
     }
-    ns = name.split(".");
+    ns = name.split(separator);
     func = context;
-    for (i = _i = 0, _len = ns.length; _i < _len; i = ++_i) {
-        n = ns[i];
-        func = func[n];
+    try {
+        for (i = _i = 0, _len = ns.length; _i < _len; i = ++_i) {
+            n = ns[i];
+            func = func[n];
+        }
+        return func;
+    } catch (e) {
+        return e;
     }
-    return func;
 }
 
 module.exports.paramsValidator = validator;
-module.exports.isInteger = isInteger;
 module.exports.isPositiveInteger = isPositiveInteger;
+module.exports.isPositiveIntegerArray = isPositiveIntegerArray;
 module.exports.isValidEmail = isValidEmail;
 module.exports.lastFolderFromPath = lastFolderFromPath;
 module.exports.isValidDate = isValidDate;
