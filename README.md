@@ -13,15 +13,15 @@ This is a simple sanity validator which can be used across various Node.JS appli
 ## Table of Contents
 - [Install](#install)
 - [Dependencies](#dependencies)
-- [Use](#usage)
-- [Methods][#methods]
-  - [paramsValidator](#params-validator) - Validates the actual object across the expected object to remove the junk data and filter out the actual data along with the data type check for each field actual value
-  - [objValByStr](#object-value) - Fetch the value of the nested object based on string path separated by an identifier
-  - [lastFolderFromPath](#last-folder) - Extract the last folder from the path string
-  - [isPositiveInteger](#positive-integer) - Check non zero positive integer value from the string
-  - [isPositiveIntegerArray](#positive-integer-array) - Check non zero positive integer value from the string in an array
-  - [isValidEmail](#valid-email) - Check valid email
-  - [isValidDate](#valid-date) - Check valid calendar date along with the specified date format
+- [Use](#use)
+- [Methods](#methods)
+  - [paramsValidator](#paramsvalidator) - Validates the actual object across the expected object to remove the junk data and filter out the actual data along with the data type check for each field actual value
+  - [objValByStr](#objvalbystr) - Fetch the value of the nested object based on string path separated by an identifier
+  - [lastFolderFromPath](#lastfolderfrompath) - Extract the last folder from the path string
+  - [isPositiveInteger](#ispositiveinteger) - Check non zero positive integer value from the string
+  - [isPositiveIntegerArray](#ispositiveintegerarray) - Check non zero positive integer value from the string in an array
+  - [isValidEmail](#isvalidemail) - Check valid email
+  - [isValidDate](#isvaliddate) - Check valid calendar date along with the specified date format
 
 ## Install
 
