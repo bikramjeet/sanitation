@@ -1,6 +1,5 @@
 # sanitation
 
-
 This is a simple sanity validator which can be used across various Node.JS applications to iterate over the "nested JSON objects structure" and perform operations like validation of incoming API data or any JSON data to return the expected object filtering out the junk data from the object, along with that has also the ability to extract the last folder from the given folder path.
 
 ## Listed below some of the key features
@@ -10,6 +9,19 @@ This is a simple sanity validator which can be used across various Node.JS appli
 - Configurable mandatory fields and blank value check for optional fields.
 - Can be used for any RESTful API.
 - Can extract the value of the nested object based on string path and the separator defined.
+
+## Table of Contents
+- [Install](#install)
+- [Dependencies](#dependencies)
+- [Use](#usage)
+- [Methods][#methods]
+  - [paramsValidator](#params-validator) - Validates the actual object across the expected object to remove the junk data and filter out the actual data along with the data type check for each field actual value
+  - [objValByStr](#object-value) - Fetch the value of the nested object based on string path separated by an identifier
+  - [lastFolderFromPath](#last-folder) - Extract the last folder from the path string
+  - [isPositiveInteger](#positive-integer) - Check non zero positive integer value from the string
+  - [isPositiveIntegerArray](#positive-integer-array) - Check non zero positive integer value from the string in an array
+  - [isValidEmail](#valid-email) - Check valid email
+  - [isValidDate](#valid-date) - Check valid calendar date along with the specified date format
 
 ## Install
 
@@ -52,7 +64,9 @@ let expectedObj = {
 };
 ```
 
-## Quick Example
+## Methods
+
+### paramsValidator
 
 ```javascript
 /**
@@ -89,7 +103,11 @@ if(!validation.success) {
     * validation.elements will contain the filtered data compared with the expected object from the actual object
     **/
 }
+```
 
+### objValByStr
+
+```javascript
 /**
 * Fetch the value of the nested object based on string path separated by dot
 **/
@@ -125,7 +143,11 @@ if(!nestedObjVal) {
     * Actual value of the nested object key will be available here
     **/
 }
+```
 
+### lastFolderFromPath
+
+```javascript
 /**
 * Extract the last folder from the path string
 **/
@@ -133,7 +155,11 @@ if(!nestedObjVal) {
 let folderPath = "/usr/share/test"
 
 sanity.lastFolderFromPath(folderPath);
+```
 
+### isPositiveInteger
+
+```javascript
 /**
 * Check non zero positive integer value from the string
 **/
@@ -141,7 +167,11 @@ sanity.lastFolderFromPath(folderPath);
 let intVal = "1";
 
 sanity.isPositiveInteger(intVal);
+```
 
+### isPositiveIntegerArray
+
+```javascript
 /**
 * Check non zero positive integer value from the string in an array
 **/
@@ -149,7 +179,11 @@ sanity.isPositiveInteger(intVal);
 let intValArray = ["1", "2"];
 
 sanity.isPositiveIntegerArray(intValArray);
+```
 
+### isValidEmail
+
+```javascript
 /**
 * Check valid email
 **/
@@ -157,7 +191,11 @@ sanity.isPositiveIntegerArray(intValArray);
 let email = "test@gmail.com";
 
 sanity.isValidEmail(email);
+```
 
+### isValidDate
+
+```javascript
 /**
 * Check valid calendar date along with YYYY-MM-DD date format
 **/
