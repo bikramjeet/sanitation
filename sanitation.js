@@ -15,7 +15,7 @@ function validator(data, validFields, mandatoryFields, blankValue) {
     param.response = {};
     param.success = true;
     function validateChildValues(key) {
-        var stringValue;
+        var validValue;
         var arrValue;
         for(var i = 0; i < data[key].length; i++) {
             if(validFields[key][0] !== undefined && typeof(validFields[key][0]) !== typeof(data[key][i])) {
@@ -23,14 +23,14 @@ function validator(data, validFields, mandatoryFields, blankValue) {
                 param.success = false;
             } else {
                 arrValue = (validFields[key][0] !== undefined) ? validator(data[key][i], validFields[key][0], mandatoryFields, blankValue) : data[key][i];
-                stringValue = (typeof(arrValue) === "string") ? true : false;
-                if(!stringValue && (arrValue === null || !arrValue.success)) {
+                validValue = (typeof(arrValue) === "string" || typeof(arrValue) === "number") ? true : false;
+                if(!validValue && (arrValue === null || !arrValue.success)) {
                     param.success = false;
                     var temp_resp = {};
                     temp_resp.errorMsg = "Invalid parameter value";
                     param.response = ((arrValue === null || arrValue.response === undefined || arrValue.response === null) ? temp_resp : arrValue.response);
                 } else {
-                    param.elements[key].push(stringValue ? arrValue : arrValue.elements);
+                    param.elements[key].push(validValue ? arrValue : arrValue.elements);
                 }
             }
             if(!param.success) {
