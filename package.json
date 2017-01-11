@@ -1,7 +1,7 @@
 {
   "author": "Bikramjeet Nath <bkrmjtnath@gmail.com>",
   "name": "sanitation",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Iterates over nested JSON objects to fetch the value and performs operation like sanity validation of data along with blank value and mandatory fields check",
   "main": "sanitation.js",
   "scripts": {
