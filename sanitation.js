@@ -153,7 +153,7 @@ function lastFolderFromPath(folderPath) {
 * @param {String} dateFormat The expected format of the date value.
 **/
 function isValidDate(dateString, dateFormat) {
-    if(!dateString.match(config.dateFormatPattern)) {
+    if(moment(dateString, dateFormat).format(dateFormat) !== dateString) {
         return false;
     }
     if(!moment(dateString, dateFormat).isValid()) {
