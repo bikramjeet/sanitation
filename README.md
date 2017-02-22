@@ -21,7 +21,7 @@ This is a simple sanity validator which can be used across various Node.JS appli
   - [isPositiveInteger](#ispositiveinteger) - Check non zero positive integer value from the string
   - [isPositiveIntegerArray](#ispositiveintegerarray) - Check non zero positive integer value from the string in an array
   - [isValidEmail](#isvalidemail) - Check valid email
-  - [isValidDate](#isvaliddate) - Check valid calendar date along with the specified date format
+  - [isValidDate](#isvaliddate) - Check valid calendar date along with the specified date format and covert to expected date format if required
 
 ## Install
 
@@ -197,10 +197,20 @@ sanity.isValidEmail(email);
 
 ```javascript
 /**
-* Check valid calendar date along with YYYY-MM-DD date format
+* Check valid calendar date along with DD/MM/YYYY date format and convert to YYYY-MM-DD as the output, third parameter is optional
 **/
 
-let date = "2016-12-12";
+let date = "12/12/2016";
 
-sanity.isValidDate(date, "YYYY-MM-DD");
+let validDate = sanity.isValidDate(date, "DD/MM/YYYY", "YYYY-MM-DD");
+
+if(!validDate) {
+    /**
+    * Define your handler for error scenario
+    **/
+} else {
+    /**
+    * Define your handler for success scenario, return value will be either the formatted date or boolean based on the third parameter passed or not
+    **/
+}
 ```

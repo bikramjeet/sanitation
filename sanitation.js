@@ -147,20 +147,23 @@ function lastFolderFromPath(folderPath) {
 }
 
 /**
-* Checks the date format along with valid date.
+* Checks the date format along with valid date and convert to the expected format.
 * @method isValidDate
 * @param {String} dateString The date value to validate.
 * @param {String} dateFormat The expected format of the date value.
+* @param {String} [returnDateFormat] The expected date format after conversion as the return value.
 **/
-function isValidDate(dateString, dateFormat) {
+function isValidDate(dateString, dateFormat, returnDateFormat) {
     if(moment(dateString, dateFormat).format(dateFormat) !== dateString) {
         return false;
     }
     if(!moment(dateString, dateFormat).isValid()) {
         return false;
     }
-    var d = new Date(dateString);
-    return d.toISOString().slice(0,10) === dateString;
+    if(returnDateFormat) {
+        return moment(dateString, dateFormat).format(returnDateFormat);
+    }
+    return true;
 }
 
 /**
