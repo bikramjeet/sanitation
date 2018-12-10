@@ -1,6 +1,9 @@
+package-lock.json
+
 # Logs
 logs/*.log
 npm-debug.log*
+*.log
 
 # Runtime data
 pids
@@ -33,6 +36,7 @@ node_modules
 
 #Documentation
 out
+jsdocconf.json
 
 #sample-tests
 test
@@ -42,3 +46,9 @@ test
 
 #Sonar
 .sonar
+.scannerwork
+sonar-project.properties
+
+#IDE files
+.idea
+.vscode
